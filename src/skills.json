@@ -1,0 +1,58 @@
+[
+    {
+      "id": 1,
+      "name": "HTML",
+      "level": "Advanced"
+    },
+    {
+      "id": 2,
+      "name": "CSS",
+      "level": "Advanced"
+    },
+    {
+      "id": 3,
+      "name": "JavaScript",
+      "level": "Advanced"
+    },
+    {
+      "id": 4,
+      "name": "React",
+      "level": "Intermediate"
+    },
+    {
+      "id": 5,
+      "name": "Java",
+      "level": "Intermediate"
+    },
+    {
+      "id": 6,
+      "name": "Python",
+      "level": "Intermediate"
+    },
+    {
+      "id": 7,
+      "name": "Tailwind CSS",
+      "level": "Intermediate"
+    },
+    {
+      "id": 8,
+      "name": "SQL",
+      "level": "Beginner"
+    },
+    {
+        "id": 9,
+        "name": "NumPy",
+        "level": "Intermediate"
+    },
+    {
+        "id": 8,
+        "name": "Panda",
+        "level": "Intermediate"
+    },
+    {
+        "id": 8,
+        "name": "React",
+        "level": "Intermediate"
+    }
+  ]
+  
