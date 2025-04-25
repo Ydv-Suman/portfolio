@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Routes,Route } from 'react-router-dom'
 import './App.css'
 import NavBar from './components/NavBar'
-import Home from './routes/Home'
+import Home from './routes/Home.jsx'
 import Skills from './routes/Skills'
 
 function App() {
