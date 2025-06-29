@@ -18,7 +18,7 @@ function Website() {
         </div>
       </div>
 
-      <div className="flex flex-col md:flex-row items-center justify-evenly px-10 py-20 gap-6">
+      <div className="flex flex-col md:flex-row items-center justify-evenly px-10 py-20 gap-6 mt-[10%]">
         <div className="max-w-xl">
           <p className="text-xl font-semibold leading-relaxed text-white">
             Hi! I am <span className="text-yellow-300">Suman Yadav,<br />
@@ -36,7 +36,7 @@ function Website() {
           <p className="font-semibold font-serif items-center ml-5 mt-3 text-center w-25 h-8 rounded-2xl border-4 border-green-400 ">
             <button className="cursor-pointer ">Hire Me</button>
           </p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex gap-4 mt-10">
             <Link to="https://github.com/Ydv-Suman" target="_blank">
               <FaGithub className="text-white text-2xl hover:text-blue-500" />
             </Link>
