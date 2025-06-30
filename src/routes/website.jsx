@@ -51,7 +51,7 @@ function Website() {
   return (
     <div className="bg-blue-900 min-h-screen font-sans">
 
-      <div className="flex flex-wrap fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 py-4 bg-blue-800 shadow-md">
+      <div className="flex flex-wrap fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 py-3 bg-blue-800 shadow-md">
         <p className="text-4xl font-bold font-serif text-white">SUMAN</p>
         <nav className="flex gap-2.5 text-lg text-white font-semibold">
           {["home", "skills", "projects", "about", "contact"].map((section) => (
@@ -92,20 +92,7 @@ function Website() {
               Hire Me
             </button>
           </p>
-          <div className="flex gap-4 mt-8 ml-0 md:ml-[5%]">
-            <a href="https://github.com/Ydv-Suman" target="_blank" rel="noopener noreferrer">
-              <FaGithub className="text-white text-2xl hover:text-blue-500" />
-            </a>
-            <a href="https://www.linkedin.com/in/suman-ydv" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin className="text-white text-2xl hover:text-blue-500" />
-            </a>
-            <a href="https://facebook.com/ydv.smn" target="_blank" rel="noopener noreferrer">
-              <FaFacebook className="text-white text-2xl hover:text-blue-500" />
-            </a>
-            <a href="https://instagram.com/ydv__suman" target="_blank" rel="noopener noreferrer">
-              <FaInstagram className="text-white text-2xl hover:text-blue-500" />
-            </a>
-          </div>
+
         </div>
 
         <img
@@ -118,12 +105,12 @@ function Website() {
       {/* SKILLS */}
 
       <section id="skills" className="px-4 md:px-10 py-10 mt-16 md:mt-24 lg:mt-32">
-        <h1 className="text-center font-bold text-4xl text-white animate-bounce mb-12">Skills</h1>
+        <h1 className="text-center font-bold text-4xl text-white animate-bounce mb-12 mt-[2%]">Skills</h1>
 
         <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto items-center lg:items-start">
           <div className="grid grid-cols-1 gap-8 flex-1">
             <div className="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-purple-400 mb-4">Languages</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-purple-400 mb-2">Languages</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.language.map((lang, index) => (
                   <span
@@ -137,7 +124,7 @@ function Website() {
             </div>
 
             <div className="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-blue-400 mb-4">Libraries & Frameworks</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-blue-400 mb-2">Libraries & Frameworks</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.Libraries.map((lib, index) => (
                   <span
@@ -151,7 +138,7 @@ function Website() {
             </div>
 
             <div className="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-4">Markup & Styling</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-green-400 mb-2">Markup & Styling</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.Markup.map((markup, index) => (
                   <span
@@ -165,7 +152,7 @@ function Website() {
             </div>
 
             <div className="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">Tools</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-orange-400">Tools</h3>
               <div className="flex flex-wrap gap-3">
                 {skills.Tools.map((tools, index) => (
                   <span
@@ -191,13 +178,13 @@ function Website() {
 
       {/* PROJECTS */}
 
-      <section id="projects" className="mt-16 md:mt-24 lg:mt-32">
-        <h1 className="text-center font-bold text-4xl text-white animate-bounce mb-8">PROJECTS</h1>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-16 pb-20">
-          {repos.slice(0, 6).map((repo) => (
+      <section id="projects" className="mt-16 md:mt-24 lg:mt-32 mt-16">
+        <h1 className="text-center font-bold text-4xl text-white animate-bounce mb-2 mt-[7%]">PROJECTS</h1>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-5 md:px-16 pb-20">
+          {repos.slice(0, 13).map((repo) => (
             <div
               key={repo.id}
-              className="bg-gray-800 text-white p-6 rounded-xl shadow-lg border-2 border-blue-500 hover:border-yellow-400 transition-all duration-300"
+              className="bg-gray-800 text-white p-4 rounded-xl shadow-lg border-2 border-blue-500 hover:border-yellow-400 transition-all duration-300"
             >
               <h3 className="text-xl font-semibold mb-2">{repo.name}</h3>
               <p className="text-sm text-gray-300 mb-4">
