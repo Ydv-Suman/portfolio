@@ -69,7 +69,7 @@ function Website() {
 
       {/** Home */}
 
-      <section id="home" className="flex flex-col md:flex-row items-center justify-evenly px-10 py-20 gap-6 pt-[180px]">
+      <section id="home" className="flex flex-col md:flex-row items-center justify-evenly px-6 md:px-10 py-20 gap-6 pt-[180px]">
         <div className="max-w-xl">
           <p className="text-xl font-semibold leading-relaxed text-white">
             Hi! I am <span className="text-yellow-300">Suman Yadav,<br />
@@ -87,12 +87,12 @@ function Website() {
           <p>
             <button
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-              className="font-bold ml-[10%] mt-[4%] cursor-pointer px-4 py-2 text-white rounded-full border-2 border-green-500 hover:border-green-300 hover:bg-green-900 hover:bg-opacity-30 transition-all duration-300 hover:scale-105"
+              className="font-bold ml-0 md:ml-[10%] mt-6 md:mt-[4%] cursor-pointer px-4 py-2 text-white rounded-full border-2 border-green-500 hover:border-green-300 hover:bg-green-900 hover:bg-opacity-30 transition-all duration-300 hover:scale-105"
             >
               Hire Me
             </button>
           </p>
-          <div className="flex gap-4 mt-8 ml-[5%]">
+          <div className="flex gap-4 mt-8 ml-0 md:ml-[5%]">
             <a href="https://github.com/Ydv-Suman" target="_blank" rel="noopener noreferrer">
               <FaGithub className="text-white text-2xl hover:text-blue-500" />
             </a>
@@ -111,13 +111,13 @@ function Website() {
         <img
           src={image}
           alt="profile"
-          className="w-75 h-75 object-cover rounded-full border-4 border-white shadow-lg"
+          className="w-40 h-40 sm:w-52 sm:h-52 md:w-64 md:h-64 object-cover rounded-full border-4 border-white shadow-lg"
         />
       </section>
 
       {/* SKILLS */}
 
-      <section id="skills" className="px-4 md:px-10 py-10 mt-[12%]">
+      <section id="skills" className="px-4 md:px-10 py-10 mt-16 md:mt-24 lg:mt-32">
         <h1 className="text-center font-bold text-4xl text-white animate-bounce mb-12">Skills</h1>
 
         <div className="flex flex-col lg:flex-row gap-8 max-w-6xl mx-auto items-center lg:items-start">
@@ -179,7 +179,7 @@ function Website() {
             </div>
           </div>
 
-          <div className="w-full lg:w-1/3 flex-shrink-0 rounded-xl overflow-hidden border-2 border-gray-700 hover:border-purple-500 mt-[15%] ml-[6%] transition-all duration-300">
+          <div className="w-full lg:w-1/3 flex-shrink-0 rounded-xl overflow-hidden border-2 border-gray-700 hover:border-purple-500 mt-16 md:mt-[15%] ml-0 md:ml-[6%] transition-all duration-300">
             <img
               src={gif}
               alt="Coding animation"
@@ -191,7 +191,7 @@ function Website() {
 
       {/* PROJECTS */}
 
-      <section id="projects" className="mt-[15%]">
+      <section id="projects" className="mt-16 md:mt-24 lg:mt-32">
         <h1 className="text-center font-bold text-4xl text-white animate-bounce mb-8">PROJECTS</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-6 md:px-16 pb-20">
           {repos.slice(0, 6).map((repo) => (
@@ -218,7 +218,7 @@ function Website() {
 
       {/* ABOUT */}
 
-      <section id="about" className="mt-[15%] px-10 pb-16">
+      <section id="about" className="mt-16 md:mt-24 lg:mt-32 px-6 md:px-10 pb-16">
         <h1 className="font-bold text-4xl text-white text-center animate-bounce delay-1000">ABOUT ME</h1>
         <p className="text-lg text-white leading-relaxed text-justify mx-auto max-w-4xl mt-6">
           Hello! I’m <span className="text-yellow-300 font-semibold">Suman Yadav</span>, a tech enthusiast, problem-solver, and lifelong learner from Monroe, Louisiana. I’m currently pursuing my Bachelor’s in Computer Science at the <span className="text-teal-300">University of Louisiana</span>, where I’m building a strong foundation in both <span className="text-teal-300 font-medium">software development</span> and <span className="text-purple-300 font-medium">data science</span>.
@@ -238,7 +238,7 @@ function Website() {
       </section>
 
       {/** Contact */}
-      <section id="contact" className="mt-[15%] px-10 pb-16">
+      <section id="contact" className="mt-16 md:mt-24 lg:mt-32 px-6 md:px-10 pb-16">
         <h1 className="font-bold text-4xl text-white text-center animate-bounce delay-1000">Contact</h1>
         <div className="flex flex-col md:flex-row items-center justify-center mt-10 gap-20 max-w-4xl mx-auto">
 
@@ -253,7 +253,7 @@ function Website() {
           <form
             action="https://formsubmit.co/sumanydv615@gmail.com"
             method="POST"
-            className="max-w-md mx-auto bg-gray-500 p-6 rounded-xl text-white mt-10"
+            className="max-w-md mx-auto bg-gray-500 p-6 rounded-xl text-white mt-10 w-full md:w-auto"
           >
             {/* Disable CAPTCHA */}
             <input type="hidden" name="_captcha" value="false" />
@@ -302,12 +302,11 @@ function Website() {
 
             <button
               type="submit"
-              className="bg-green-500 px-4 py-2 rounded-full hover:bg-green-600 transition"
+              className="bg-green-500 px-4 py-2 rounded-full hover:bg-green-600 transition w-full md:w-auto"
             >
               Send Message
             </button>
           </form>
-
 
         </div>
       </section>
