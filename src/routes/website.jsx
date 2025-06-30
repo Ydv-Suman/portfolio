@@ -51,7 +51,7 @@ function Website() {
   return (
     <div className="bg-blue-900 min-h-screen font-sans">
 
-      <div className="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 py-4 bg-blue-800 shadow-md">
+      <div className="flex flex-wrap fixed top-0 left-0 w-full z-50 flex justify-between items-center px-5 py-4 bg-blue-800 shadow-md">
         <p className="text-4xl font-bold font-serif text-white">SUMAN</p>
         <nav className="flex gap-2.5 text-lg text-white font-semibold">
           {["home", "skills", "projects", "about", "contact"].map((section) => (
