@@ -2,6 +2,6 @@
   "language": ["Python", "Java", "JavaScript", "SQL"],
   "Libraries": ["Numpy", "Pandas", "Scikit Learn", "Matplotlib", "Seaborn", "React", "Tailwind"],
   "Markup": ["HTML", "CSS"],
-  "Other": ["Git", "GitHub", "MS Excel"]
+  "Tools": ["Git", "GitHub", "Nupyter notebook", "Google Colab", "VS Code"]
 
 }

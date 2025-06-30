@@ -165,14 +165,14 @@ function Website() {
             </div>
 
             <div className="bg-gray-800 bg-opacity-50 p-6 rounded-xl">
-              <h3 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">Other Skills</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-orange-400 mb-4">Tools</h3>
               <div className="flex flex-wrap gap-3">
-                {skills.Other.map((other, index) => (
+                {skills.Tools.map((tools, index) => (
                   <span
                     key={index}
                     className="px-4 py-2 text-white rounded-full border-2 border-orange-500 hover:border-orange-300 hover:bg-orange-900 hover:bg-opacity-30 transition-all duration-300 hover:scale-105"
                   >
-                    {other}
+                    {tools}
                   </span>
                 ))}
               </div>
