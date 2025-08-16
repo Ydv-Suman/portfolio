@@ -1,7 +1,6 @@
 {
-  "language": ["Python", "Java", "JavaScript", "SQL"],
-  "Libraries": ["Numpy", "Pandas", "Scikit Learn", "Matplotlib", "Seaborn", "React", "Tailwind"],
-  "Markup": ["HTML", "CSS"],
-  "Tools": ["Git", "GitHub", "Nupyter notebook", "Google Colab", "VS Code"]
-
+  "language": ["Python", "Java", "JavaScript"],
+  "MlDataScience": ["Scikit Learn", "Tensorflow","Numpy", "Pandas",  "Matplotlib", "Seaborn"],
+  "WebDevelopement": ["React", "Tailwind CSS", "HTML", "CSS"],
+  "tools": ["Nupyter notebook", "Google Colab","Git", "GitHub", "VS Code"]
 }
