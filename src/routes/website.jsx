@@ -32,27 +32,31 @@ function Website() {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!formData.name || !formData.email || !formData.message) {
       setStatus("Please fill all fields.");
       return;
     }
 
-    // Here you would typically send the form data to a backend
-    console.log("Form submitted:", formData);
-    setStatus("Message sent! Thank you.");
-    setFormData({ name: "", email: "", message: "" });
+    try {
+      const response = await fetch('YOUR_SCRIPT_URL', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
 
-    // You might want to actually send the data to an API here
-    // fetch('/api/contact', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(formData)
-    // })
-    // .then(response => response.json())
-    // .then(data => setStatus("Message sent! Thank you."))
-    // .catch(error => setStatus("Error sending message."));
+      if (response.ok) {
+        setStatus("Message sent! Thank you.");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      setStatus("Failed to send message. Please try again.");
+    }
   };
 
   const handleScroll = (e, id) => {
@@ -387,13 +391,13 @@ function Website() {
                   <a href="https://github.com/Ydv-Suman" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
                     <FaGithub className="w-8 h-8" />
                   </a>
-                  <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+                  <a href="https://linkedin.com/in/suman-ydv" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
                     <FaLinkedin className="w-8 h-8" />
                   </a>
-                  <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
+                  <a href="https://instagram.com/ydv__suman" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors duration-300">
                     <FaInstagram className="w-8 h-8" />
                   </a>
-                  <a href="https://facebook.com/yourprofile" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
+                  <a href="https://facebook.com/ydv.smn" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors duration-300">
                     <FaFacebook className="w-6 h-6" />
                   </a>
                 </div>
