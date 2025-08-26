@@ -1,6 +1,6 @@
 {
-  "language": ["Python", "Java", "JavaScript"],
+  "language": ["Python", "Java", "JavaScript", "MySQL"],
   "MlDataScience": ["Scikit Learn", "Tensorflow","Numpy", "Pandas",  "Matplotlib", "Seaborn"],
   "WebDevelopement": ["React", "Tailwind CSS", "HTML", "CSS"],
-  "tools": ["Nupyter notebook", "Google Colab","Git", "GitHub", "VS Code"]
+  "tools": ["Nupyter notebook", "Google Colab","Git", "GitHub"]
 }

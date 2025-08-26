@@ -41,7 +41,7 @@ function Website() {
     }
 
     try {
-      const response = await fetch('YOUR_SCRIPT_URL', {
+      const response = await fetch('https://formsubmit.co/ajax/krishydv615@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData)
