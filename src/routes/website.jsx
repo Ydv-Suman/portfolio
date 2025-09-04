@@ -97,7 +97,7 @@ function Website() {
                 <button
                   key={section}
                   onClick={(e) => handleScroll(e, section)}
-                  className="text-white/90 hover:text-white capitalize text-sm font-medium transition-colors duration-200 hover:scale-105 transform"
+                  className="text-white/90 hover:text-white capitalize text-sm font-medium transition-colors duration-500 hover:scale-105 transform"
                 >
                   {section}
                 </button>
