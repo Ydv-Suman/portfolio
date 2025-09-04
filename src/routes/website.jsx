@@ -4,6 +4,21 @@ import image from "../assets/image.jpeg";
 import skills from "../skills.json";
 import gif from "../assets/giphy.gif";
 import { FaInstagram, FaFacebook, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { motion } from "framer-motion";
+
+const container = {
+  animate: {
+    transition: {
+      staggerChildren: 2, // wait 2s before animating next child
+      repeat: Infinity,   // loop forever
+    },
+  },
+};
+
+const fadeInUp = {
+  initial: { opacity: 0, y: -20 },
+  animate: { opacity: 1, y: 0, transition: { duration: 1 } },
+};
 
 const GITHUB_USERNAME = "Ydv-Suman";
 
@@ -16,16 +31,17 @@ function Website() {
     message: "",
   });
   const [status, setStatus] = useState("");
+  const SELECTED_REPOS = ["Car-sale-prediction-pipeline", "Heart-Disease-Project", "Sarcasm-Detector", "Bulldozers-Price-Prediction", "ScriptLoom", "iris-predictor", "WeatherPro", "mnist-digit-recognizer", "PetVision-TFLite"];
 
   useEffect(() => {
     fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos`)
       .then((res) => res.json())
       .then((data) => {
-        const filtered = data.filter(repo => !repo.fork);
+        const filtered = data.filter((repo) => !repo.fork && SELECTED_REPOS.includes(repo.name));
         setRepos(filtered);
       })
       .catch((err) => console.error("GitHub API error:", err));
-  }, []);
+  }, [SELECTED_REPOS]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -78,14 +94,13 @@ function Website() {
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-8">
               {["home", "skills", "projects", "about", "contact"].map((section) => (
-                <Link
+                <button
                   key={section}
-                  to={`#${section}`}
                   onClick={(e) => handleScroll(e, section)}
                   className="text-white/90 hover:text-white capitalize text-sm font-medium transition-colors duration-200 hover:scale-105 transform"
                 >
                   {section}
-                </Link>
+                </button>
               ))}
             </div>
 
@@ -106,14 +121,13 @@ function Website() {
           {isMenuOpen && (
             <div className="md:hidden bg-white/10 backdrop-blur-md rounded-lg mt-2 p-4">
               {["home", "skills", "projects", "about", "contact"].map((section) => (
-                <Link
+                <button
                   key={section}
-                  to={`#${section}`}
                   onClick={(e) => handleScroll(e, section)}
-                  className="block text-white/90 hover:text-white capitalize py-2 text-sm font-medium transition-colors duration-200"
+                  className="block text-white/90 hover:text-white capitalize py-2 text-sm font-medium transition-colors duration-200 w-full text-left"
                 >
                   {section}
-                </Link>
+                </button>
               ))}
             </div>
           )}
@@ -129,12 +143,31 @@ function Website() {
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight">
                   Hi! I am <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Suman Yadav</span>
                 </h1>
-                <h2 className="text-xl sm:text-2xl text-blue-300 font-semibold">
-                  Full-Stack Explorer
-                </h2>
-                <h3 className="text-lg sm:text-xl text-purple-300 font-medium">
-                  Aspiring Data Scientist
-                </h3>
+                <div className="text-center">
+                  {/* First Heading */}
+                  <motion.div
+                    className="text-center"
+                    variants={container}
+                    initial="initial"
+                    animate="animate"
+                  >
+                    {/* First Heading */}
+                    <motion.h2
+                      className="text-xl sm:text-2xl text-blue-300 font-semibold"
+                      variants={fadeInUp}
+                    >
+                      Full-Stack Explorer
+                    </motion.h2>
+
+                    {/* Second Heading */}
+                    <motion.h3
+                      className="text-lg sm:text-xl text-purple-300 font-medium"
+                      variants={fadeInUp}
+                    >
+                      Aspiring Data Scientist
+                    </motion.h3>
+                  </motion.div>
+                </div>
               </div>
 
               <p className="text-lg text-gray-300 leading-relaxed max-w-2xl">
@@ -146,7 +179,7 @@ function Website() {
 
               <div className="flex space-x-4">
                 <button
-                  onClick={() => handleScroll({ preventDefault: () => { } }, "contact")}
+                  onClick={(e) => handleScroll(e, "contact")}
                   className="inline-flex items-center px-8 py-3 text-lg font-semibold text-white bg-gradient-to-r from-green-500 to-blue-600 rounded-full hover:from-green-600 hover:to-blue-700 transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Hire Me
@@ -249,12 +282,12 @@ function Website() {
                     Tools
                   </h3>
                   <div className="flex flex-wrap gap-3">
-                    {skills.tools.map((tools, index) => (
+                    {skills.tools.map((tool, index) => (
                       <span
                         key={index}
                         className="px-4 py-2 text-white bg-orange-500/20 border border-orange-400/30 rounded-full hover:bg-orange-500/30 hover:border-orange-400 transition-all duration-300 hover:scale-105 transform"
                       >
-                        {tools}
+                        {tool}
                       </span>
                     ))}
                   </div>
@@ -282,7 +315,7 @@ function Website() {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {repos.slice(0, repos.length).map((repo) => (
+            {repos.map((repo) => (
               <div
                 key={repo.id}
                 className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/15 hover:border-white/30 transition-all duration-300 hover:scale-105 transform group"
