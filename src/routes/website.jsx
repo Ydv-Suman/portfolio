@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import sumanImage from "../assets/suman.jpeg";
+import resumePdf from "../assets/Yadav_Suman_Resume.pdf";
+import logoImage from "../assets/logo.jpeg";
 import skills from "../skills.json";
 import {
   FaInstagram, FaFacebook, FaLinkedin, FaGithub,
@@ -73,7 +75,7 @@ const CONTACT_DETAILS = [
   { icon: FaEnvelope,      label: "Email",    value: "sumanydv615@gmail.com",         href: "mailto:sumanydv615@gmail.com" },
   { icon: FaMapMarkerAlt,  label: "Location", value: "Monroe, Louisiana • Remote friendly" },
   { icon: FaLinkedin,      label: "LinkedIn", value: "linkedin.com/in/suman-ydv",     href: "https://linkedin.com/in/suman-ydv" },
-  { icon: FaFileDownload,  label: "Resume",   value: "Download PDF",                  href: "/Yadav_Suman_Resume.pdf" },
+  { icon: FaFileDownload,  label: "Resume",   value: "Download PDF",                  href: resumePdf },
 ];
 
 const SKILL_ICONS = {
@@ -146,6 +148,7 @@ function Website() {
   const [isMenuOpen, setIsMenuOpen]   = useState(false);
   const [formData, setFormData]       = useState({ name: "", email: "", message: "" });
   const [status, setStatus]           = useState({ type: "", message: "" });
+  const [sending, setSending]         = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -207,17 +210,34 @@ function Website() {
       return;
     }
     try {
+      setSending(true);
       setStatus({ type: "", message: "" });
       const res = await fetch("https://formsubmit.co/ajax/sumanydv615@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          name:     formData.name,
+          email:    formData.email,
+          message:  formData.message,
+          _subject: `Portfolio message from ${formData.name}`,
+          _replyto: formData.email,
+        }),
       });
-      if (!res.ok) throw new Error("Send failed");
-      setStatus({ type: "success", message: "Message sent! Thank you for reaching out." });
+      const data = await res.json();
+      if (!res.ok || data.success === "false" || data.success === false) {
+        throw new Error(data.message || "Send failed");
+      }
+      setStatus({ type: "success", message: "Message sent! I'll get back to you within 24 hours." });
       setFormData({ name: "", email: "", message: "" });
-    } catch {
-      setStatus({ type: "error", message: "Something went wrong. Please try again." });
+    } catch (err) {
+      const msg = err?.message?.toLowerCase() ?? "";
+      if (msg.includes("not activated") || msg.includes("confirm")) {
+        setStatus({ type: "error", message: "Email delivery not yet activated. Please email me directly at sumanydv615@gmail.com." });
+      } else {
+        setStatus({ type: "error", message: "Something went wrong. Please try again or email me directly." });
+      }
+    } finally {
+      setSending(false);
     }
   };
 
@@ -244,9 +264,7 @@ function Website() {
 
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-600 flex items-center justify-center text-white font-extrabold text-sm shadow-md shadow-emerald-300/40">
-              SY
-            </div>
+            <img src={logoImage} alt="Logo" className="h-10 w-10 rounded-xl object-cover shadow-md shadow-emerald-300/40" />
             <div>
               <p className="text-xs tracking-widest text-gray-400 uppercase leading-none mb-0.5">Portfolio</p>
               <p className="text-base font-bold text-gray-800 leading-none">Suman Yadav</p>
@@ -352,7 +370,7 @@ function Website() {
                   </svg>
                 </button>
                 <a
-                  href="/Yadav_Suman_Resume.pdf"
+                  href={resumePdf}
                   download
                   className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-white text-gray-600 font-semibold border border-gray-200 hover:border-emerald-300 hover:text-emerald-600 hover:-translate-y-0.5 transition-all shadow-sm"
                 >
@@ -765,9 +783,10 @@ function Website() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-200/60 hover:shadow-emerald-300/70 hover:-translate-y-0.5 transition-all"
+                    disabled={sending}
+                    className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 text-white font-bold shadow-md shadow-emerald-200/60 hover:shadow-emerald-300/70 hover:-translate-y-0.5 transition-all disabled:opacity-60 disabled:cursor-not-allowed disabled:translate-y-0"
                   >
-                    Send message →
+                    {sending ? "Sending…" : "Send message →"}
                   </button>
                   {status.message && (
                     <p className={`text-center text-sm font-semibold ${status.type === "success" ? "text-green-600" : "text-red-500"}`}>
