@@ -1,6 +1,7 @@
 {
-  "language": ["Python", "Java", "JavaScript", "MySQL"],
-  "MlDataScience": ["PyTorch","Scikit Learn", "Tensorflow","Numpy", "Pandas",  "Matplotlib", "Seaborn"],
-  "WebDevelopement": ["React", "Tailwind CSS", "HTML", "CSS"],
-  "tools": ["Nupyter notebook", "Google Colab","Git", "GitHub"]
+  "language": ["Python", "Java", "JavaScript"],
+  "MlDataScience": ["Scikit Learn", "TensorFlow", "PyTorch", "RAG", "Numpy", "Pandas", "Matplotlib", "Seaborn"],
+  "WebAndMobile": ["React", "React Native", "Tailwind CSS", "HTML", "CSS"],
+  "BackendAndDatabase": ["Django", "FastAPI", "MySQL", "PostgreSQL"],
+  "tools": ["Jupyter Notebook", "Google Colab", "Git", "GitHub", "Cursor", "VS Code"]
 }
