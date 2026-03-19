@@ -45,7 +45,7 @@ const EXPERIENCE_ITEMS = [
     dot: "bg-teal-600",
   },
   {
-    period: "2022 — Present",
+    period: "2024 — Present",
     title: "Full-Stack Experiments",
     org: "Personal & Client Work",
     details: "Designing responsive React + Tailwind experiences and integrating Python/FastAPI services for real users.",
@@ -450,37 +450,62 @@ function Website() {
 
             <M.div
               initial="hidden" whileInView="visible" viewport={{ once: true }} variants={stagger}
-              className="grid gap-5"
+              className="grid gap-5 sm:grid-cols-2"
             >
-              {skillGroups.map(group => (
-                <M.div
-                  key={group.title}
-                  variants={fadeInUp}
-                  className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(5,150,105,0.06)] border border-gray-100/60 hover:shadow-[0_8px_28px_rgba(5,150,105,0.1)] transition-all"
-                >
-                  <div className="flex items-center gap-3 mb-5">
-                    <span className="text-2xl">{group.emoji}</span>
-                    <h3 className="text-xl font-extrabold text-gray-900">{group.title}</h3>
-                    <span className="ml-auto text-sm text-gray-400 bg-gray-50 rounded-full px-3 py-0.5 border border-gray-100">
-                      {group.items.length} tools
-                    </span>
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {group.items.map(item => {
-                      const Icon = SKILL_ICONS[item];
-                      return (
-                        <span
-                          key={item}
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-50 hover:bg-emerald-50 border border-gray-100 hover:border-emerald-200 rounded-xl text-sm font-semibold text-gray-600 hover:text-emerald-600 transition-all cursor-default"
-                        >
-                          {Icon && <Icon className="h-4 w-4 flex-shrink-0" />}
-                          {item}
-                        </span>
-                      );
-                    })}
-                  </div>
-                </M.div>
-              ))}
+              {skillGroups.map((group, gi) => {
+                const accentGradients = [
+                  "from-emerald-500 to-teal-500",
+                  "from-violet-500 to-purple-500",
+                  "from-sky-500 to-blue-500",
+                  "from-orange-500 to-amber-500",
+                  "from-rose-500 to-pink-500",
+                ];
+                const accentSofts = [
+                  "bg-emerald-50 text-emerald-700 border-emerald-200",
+                  "bg-violet-50 text-violet-700 border-violet-200",
+                  "bg-sky-50 text-sky-700 border-sky-200",
+                  "bg-orange-50 text-orange-700 border-orange-200",
+                  "bg-rose-50 text-rose-700 border-rose-200",
+                ];
+                const accent = accentGradients[gi % accentGradients.length];
+                const soft   = accentSofts[gi % accentSofts.length];
+                return (
+                  <M.div
+                    key={group.title}
+                    variants={fadeInUp}
+                    className="bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(5,150,105,0.06)] border border-gray-100/60 hover:shadow-[0_8px_28px_rgba(5,150,105,0.12)] hover:-translate-y-0.5 transition-all"
+                  >
+                    {/* Colored top strip */}
+                    <div className={`h-1.5 w-full bg-gradient-to-r ${accent}`} />
+
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-5">
+                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${accent} flex items-center justify-center text-xl shadow-sm`}>
+                          {group.emoji}
+                        </div>
+                        <div>
+                          <h3 className="text-base font-extrabold text-gray-900 leading-none">{group.title}</h3>
+                          <p className="text-xs text-gray-400 mt-0.5">{group.items.length} tools</p>
+                        </div>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {group.items.map(item => {
+                          const Icon = SKILL_ICONS[item];
+                          return (
+                            <span
+                              key={item}
+                              className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold border ${soft} transition-all cursor-default`}
+                            >
+                              {Icon && <Icon className="h-3.5 w-3.5 flex-shrink-0" />}
+                              {item}
+                            </span>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  </M.div>
+                );
+              })}
             </M.div>
           </div>
         </section>
@@ -548,11 +573,14 @@ function Website() {
             >
               {loadingRepos
                 ? Array.from({ length: 5 }).map((_, i) => (
-                    <div key={i} className="animate-pulse rounded-2xl bg-white p-6 shadow-sm border border-gray-100 space-y-3">
-                      <div className="h-5 w-3/5 rounded-xl bg-gray-100" />
-                      <div className="h-3 w-full rounded bg-gray-100" />
-                      <div className="h-3 w-4/5 rounded bg-gray-100" />
-                      <div className="h-9 w-full rounded-xl bg-gray-100 mt-4" />
+                    <div key={i} className="animate-pulse rounded-2xl bg-white overflow-hidden shadow-sm border border-gray-100">
+                      <div className="h-1.5 w-full bg-gray-100" />
+                      <div className="p-6 space-y-3">
+                        <div className="h-5 w-3/5 rounded-xl bg-gray-100" />
+                        <div className="h-3 w-full rounded bg-gray-100" />
+                        <div className="h-3 w-4/5 rounded bg-gray-100" />
+                        <div className="h-9 w-full rounded-xl bg-gray-100 mt-4" />
+                      </div>
                     </div>
                   ))
                 : repos.map((repo, i) => {
@@ -562,40 +590,74 @@ function Website() {
                         key={repo.id}
                         variants={fadeInUp}
                         transition={{ delay: i * 0.07 }}
-                        className="group bg-white rounded-2xl p-6 shadow-[0_4px_20px_rgba(5,150,105,0.06)] border border-gray-100/60 hover:shadow-[0_8px_32px_rgba(5,150,105,0.14)] hover:-translate-y-1 transition-all flex flex-col"
+                        className="group bg-white rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(5,150,105,0.06)] border border-gray-100/60 hover:shadow-[0_8px_32px_rgba(5,150,105,0.14)] hover:-translate-y-1 transition-all flex flex-col"
                       >
-                        <div className="flex items-start justify-between gap-3 mb-4">
-                          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-100 to-teal-100 flex items-center justify-center flex-shrink-0">
-                            <FaGithub className="h-5 w-5 text-emerald-600" />
+                        {/* Language-colored top bar */}
+                        <div className="h-1.5 w-full" style={{ backgroundColor: langColor }} />
+
+                        <div className="p-6 flex flex-col flex-1">
+                          <div className="flex items-start justify-between gap-3 mb-4">
+                            <div
+                              className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm"
+                              style={{ backgroundColor: `${langColor}18` }}
+                            >
+                              <FaGithub className="h-5 w-5" style={{ color: langColor }} />
+                            </div>
+                            {repo.language && (
+                              <span
+                                className="flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full border mt-1 flex-shrink-0"
+                                style={{ backgroundColor: `${langColor}12`, color: langColor, borderColor: `${langColor}30` }}
+                              >
+                                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: langColor }} />
+                                {repo.language}
+                              </span>
+                            )}
                           </div>
-                          {repo.language && (
-                            <span className="flex items-center gap-1.5 text-xs text-gray-400 bg-gray-50 px-2.5 py-1 rounded-full border border-gray-100 mt-1 flex-shrink-0">
-                              <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ backgroundColor: langColor }} />
-                              {repo.language}
+
+                          <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug">{repo.name}</h3>
+                          <p className="text-sm text-gray-500 leading-relaxed flex-1 mb-4">
+                            {repo.description || "Exploring data, ML, and product craftsmanship."}
+                          </p>
+
+                          <div className="flex items-center gap-3 text-xs text-gray-400 mb-4">
+                            {repo.stargazers_count > 0 && (
+                              <span className="flex items-center gap-1">
+                                <svg className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                </svg>
+                                {repo.stargazers_count}
+                              </span>
+                            )}
+                            <span>
+                              {new Date(repo.updated_at).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
                             </span>
-                          )}
+                          </div>
+
+                          <a
+                            href={repo.html_url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border text-sm font-semibold transition-all hover:-translate-y-0.5"
+                            style={{
+                              backgroundColor: `${langColor}10`,
+                              borderColor: `${langColor}30`,
+                              color: langColor,
+                            }}
+                            onMouseEnter={e => {
+                              e.currentTarget.style.backgroundColor = langColor;
+                              e.currentTarget.style.color = "#fff";
+                              e.currentTarget.style.borderColor = langColor;
+                            }}
+                            onMouseLeave={e => {
+                              e.currentTarget.style.backgroundColor = `${langColor}10`;
+                              e.currentTarget.style.color = langColor;
+                              e.currentTarget.style.borderColor = `${langColor}30`;
+                            }}
+                          >
+                            <FaGithub className="h-4 w-4" />
+                            View on GitHub
+                          </a>
                         </div>
-
-                        <h3 className="text-base font-bold text-gray-900 mb-2 leading-snug">{repo.name}</h3>
-                        <p className="text-sm text-gray-500 leading-relaxed flex-1 mb-4">
-                          {repo.description || "Exploring data, ML, and product craftsmanship."}
-                        </p>
-
-                        <div className="flex items-center gap-4 text-xs text-gray-400 mb-4">
-                          <span>
-                            {new Date(repo.updated_at).toLocaleDateString("en-US", { month: "short", year: "numeric" })}
-                          </span>
-                        </div>
-
-                        <a
-                          href={repo.html_url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl bg-gray-50 hover:bg-gradient-to-r hover:from-emerald-600 hover:to-teal-600 border border-gray-100 hover:border-transparent text-sm font-semibold text-gray-600 hover:text-white transition-all"
-                        >
-                          <FaGithub className="h-4 w-4" />
-                          View on GitHub
-                        </a>
                       </M.div>
                     );
                   })}
