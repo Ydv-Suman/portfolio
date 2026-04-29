@@ -127,13 +127,6 @@ function ProjectsSection({ loadingProjects, projectError, projects }) {
                         <FaGithub className="h-4 w-4" />
                         <TypewriterText as="span" text={projectContent.actionLabel} speed={9} startDelay={300 + index * 60} />
                       </a>
-                      <div className="rounded-xl border border-emerald-100 bg-emerald-50/70 px-4 py-2 font-mono text-xs text-emerald-700">
-                        <TypewriterText
-                          text={`open ${project.slug}`}
-                          speed={8}
-                          startDelay={340 + index * 60}
-                        />
-                      </div>
                     </div>
                   </div>
                 </div>
