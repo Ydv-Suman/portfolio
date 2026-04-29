@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { BUILT_IN_PATTERNS, COMMAND_SECTION_MAP, HELP_COMMANDS, NATURAL_LANGUAGE_PATTERN } from "../data/commands";
 import { resume } from "../data/resume";
 import useCommandHistory from "./useCommandHistory";
@@ -169,15 +169,6 @@ function useTerminal() {
     };
   }, []);
 
-  const projectMap = useMemo(
-    () =>
-      projects.reduce((accumulator, project) => {
-        accumulator[project.slug] = project;
-        return accumulator;
-      }, {}),
-    [projects],
-  );
-
   useEffect(() => {
     if (typeof window === "undefined") {
       return;
@@ -344,21 +335,6 @@ function useTerminal() {
 
     if (/^sudo\s+.+$/i.test(trimmedValue)) {
       appendOutput([createLogLine(resume.terminal.sudoError, "error")]);
-      return;
-    }
-
-    const projectMatch = trimmedValue.match(/^(open|cat)\s+(.+)$/i);
-    if (projectMatch) {
-      const slug = normalizeSlug(projectMatch[2]);
-      const project = projectMap[slug];
-
-      if (!project) {
-        appendOutput([createLogLine(`project not found: ${projectMatch[2]}`, "error")]);
-        return;
-      }
-
-      revealSection("project", slug);
-      appendOutput([createLogLine(`opening ${project.name}`, "system")]);
       return;
     }
 

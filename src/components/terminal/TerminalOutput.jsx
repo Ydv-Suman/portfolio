@@ -61,7 +61,7 @@ function TerminalOutput({ output }) {
               <TypewriterText
                 text={line.text}
                 preserveWhitespace={line.preserveWhitespace}
-                speed={7}
+                speed={18}
                 startDelay={Math.min(index * 18, 140)}
               />
             )}

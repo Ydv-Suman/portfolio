@@ -32,4 +32,8 @@
     background-color: rgba(16, 185, 129, 0.2);
     color: #111827;
   }
+
+  button, a, [role="button"] {
+    cursor: pointer;
+  }
 }

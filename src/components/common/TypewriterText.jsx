@@ -4,7 +4,7 @@ function TypewriterText({
   text,
   as: Component = "p",
   className = "",
-  speed = 12,
+  speed = 25,
   startDelay = 0,
   preserveWhitespace = false,
 }) {

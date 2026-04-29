@@ -1,4 +1,4 @@
-import resumePdf from "../assets/Yadav_Suman_Resume.pdf";
+import resumePdf from "../assets/Suman_Yadav_Resume.pdf";
 import profileImage from "../assets/suman.jpeg";
 import logoImage from "../assets/logo.jpeg";
 
@@ -128,10 +128,10 @@ export const resume = {
     title: "Experience & long-form learning",
     items: [
       {
-        period: "2023 — Present",
-        title: "B.S. Computer Science",
-        org: "University of Louisiana Monroe",
-        details: "Strengthening software engineering, algorithms, and applied statistics with a data science focus.",
+        period: "April 2026",
+        title: "Hawkathon 2026 — Finalist",
+        org: "Litmus · Python, FastAPI, React, PostgreSQL, AWS S3",
+        details: "Built a candidate evaluation pipeline with resume parsing, multi-source verification, and proctored assessments. Detects inflated profiles via GitHub/LinkedIn activity checks. Full-stack system with structured scoring and HR-facing insights.",
         dot: "bg-emerald-600",
       },
       {
@@ -146,6 +146,20 @@ export const resume = {
         title: "Full-Stack Experiments",
         org: "Personal & Client Work",
         details: "Designing responsive React + Tailwind experiences and integrating Python/FastAPI services for real users.",
+        dot: "bg-cyan-500",
+      },
+      {
+        period: "2023 — Expected May 2027",
+        title: "B.S. Computer Science",
+        org: "University of Louisiana at Monroe",
+        details: "AI, Data Structures, OOP, DBMS, Operating Systems, Discrete Structures, Calculus, Statistics & Probability.",
+        dot: "bg-amber-500",
+      },
+      {
+        period: "May 2023 — Aug 2023",
+        title: "Web Developer Intern",
+        org: "Startup Realm Technology · Lalitpur, Nepal",
+        details: "Built 10+ responsive UI views with HTML, CSS, and JS — 10% engagement lift. Shipped cross-browser components in a 10-member Agile team with Git-based code review.",
         dot: "bg-green-500",
       },
     ],

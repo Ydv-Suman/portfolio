@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { resume } from "../../data/resume";
 import TerminalInput from "./TerminalInput";
 import TerminalOutput from "./TerminalOutput";
@@ -8,16 +8,17 @@ const STICKY_OPEN_COMMANDS = new Set(["back", "clear", "help"]);
 function Terminal({
   executeCommand,
   input,
+  isOpen,
   isStreaming,
   onHistoryDown,
   onHistoryUp,
+  onOpenChange,
   output,
   setInputValue,
   terminalPrompt,
 }) {
   const inputRef = useRef(null);
   const panelRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
@@ -50,11 +51,11 @@ function Terminal({
   }, [isOpen]);
 
   const toggleTerminal = () => {
-    setIsOpen((current) => !current);
+    onOpenChange(!isOpen);
   };
 
   const closeTerminal = () => {
-    setIsOpen(false);
+    onOpenChange(false);
   };
 
   const handleKeyDown = async (event) => {

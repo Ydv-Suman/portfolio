@@ -15,8 +15,6 @@ export const HELP_COMMANDS = [
   "about",
   "skills",
   "projects",
-  "open [slug]",
-  "cat [slug]",
   "experience",
   "contact",
   "home",
@@ -26,8 +24,6 @@ export const HELP_COMMANDS = [
 ];
 
 export const BUILT_IN_PATTERNS = [
-  /^open\s+.+$/i,
-  /^cat\s+.+$/i,
   /^sudo\s+.+$/i,
 ];
 

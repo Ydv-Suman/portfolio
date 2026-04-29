@@ -1,3 +1,4 @@
+import { useCallback, useState } from "react";
 import { AnimatePresence } from "framer-motion";
 import AboutSection from "../components/content/AboutSection";
 import ContactSection from "../components/content/ContactSection";
@@ -27,12 +28,25 @@ function Website() {
     terminalPrompt,
   } = useTerminal();
 
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
+
+  const runCommandFromButton = useCallback(
+    (command) => {
+      setIsTerminalOpen(true);
+      setTimeout(() => {
+        executeCommand(command);
+        setIsTerminalOpen(false);
+      }, 600);
+    },
+    [executeCommand],
+  );
+
   const activeProject = projects.find((project) => project.slug === activeProjectSlug) ?? null;
 
   const renderSection = () => {
     switch (activeSection) {
       case "about":
-        return <AboutSection onCommandSuggestion={setInputValue} />;
+        return <AboutSection onCommandSuggestion={runCommandFromButton} />;
       case "skills":
         return <SkillsSection />;
       case "projects":
@@ -51,7 +65,7 @@ function Website() {
         return <ContactSection />;
       case "home":
       default:
-        return <HomeSection onCommandSuggestion={setInputValue} />;
+        return <HomeSection onCommandSuggestion={runCommandFromButton} />;
     }
   };
 
@@ -70,9 +84,11 @@ function Website() {
       <Terminal
         executeCommand={executeCommand}
         input={input}
+        isOpen={isTerminalOpen}
         isStreaming={isStreaming}
         onHistoryDown={onHistoryDown}
         onHistoryUp={onHistoryUp}
+        onOpenChange={setIsTerminalOpen}
         output={output}
         setInputValue={setInputValue}
         terminalPrompt={terminalPrompt}
