@@ -79,7 +79,7 @@ export const skillColors = {
   MySQL: "#4479a1",
   Docker: "#2496ed",
   RabbitMQ: "#ff6600",
-  Kafka: "#231f20",
+  Kafka: "#e0e0e0",
   React: "#61dafb",
   "Tailwind CSS": "#06b6d4",
   HTML: "#e34f26",
