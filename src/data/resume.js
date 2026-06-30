@@ -132,7 +132,7 @@ export const resume = {
     items: [
       {
         name: "Atlas",
-        description: "architected to power a mobile-first AI coding agent platformy.",
+        description: "architected to power a mobile-first AI coding agent platform.",
         stack: ["Springboot", "PostgreSQL", "Docker" ,"Redis"],
         github: "https://github.com/Ydv-Suman/Atlas-backend.git",
       },
