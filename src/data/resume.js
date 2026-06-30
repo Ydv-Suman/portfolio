@@ -1,35 +1,22 @@
-import resumePdf from "../assets/Suman_Yadav_Resume.pdf";
-import profileImage from "../assets/suman.jpeg";
-import logoImage from "../assets/logo.jpeg";
+import resumePdf from "../assets/Yadav_Suman_Resume.pdf";
+import profileImage from "../assets/image.png";
+
+import awsCert from "../assets/AWS Certified AI Practitioner certificate.pdf";
+import eccCert from "../assets/ECC-DSE-Certificate.pdf";
+import aiMlCert from "../assets/AI_ML_DataSscience.pdf";
+import fastapiCert from "../assets/FastAPI - The Complete Course 2026 (Beginner + Advanced).pdf";
+import djangoCert from "../assets/PythonDjango-PracticalGuide.pdf";
 
 export const resume = {
-  terminal: {
-    prompt: "visitor@suman:~$",
-    launcherLabel: "Terminal",
-    bootLines: [
-      "🖥️ Click on terminal and enter 'help' to find out commands.",
-    ],
-    backMessage: "Returned to the previous section.",
-    homeFallbackMessage: "Already at the root section.",
-    sudoError: "Permission denied: nice try.",
-    llmUnavailable: "LLM endpoint is unavailable. Set VITE_TERMINAL_LLM_URL to enable natural language answers.",
-    loadingProject: "Loading project data from GitHub...",
-  },
-  github: {
-    username: "Ydv-Suman",
-    pinnedRepos: ["Lernix", "TrustAI", "DriftGuard", "Heart-Disease-Project", "Sarcasm-Detector"],
-    fallbackDescription: "Exploring data, ML, and product craftsmanship.",
-    repoError: "GitHub data is temporarily unavailable. Please try again later.",
-  },
   person: {
     name: "Suman Yadav",
-    role: "Data · Machine Learning · Web",
-    availability: "Available for opportunity",
+    role: "Backend · Frontend · AI",
     location: "Monroe, LA",
-    university: "UL Monroe",
-    status: "Open to work",
+    university: "University of Louisiana at Monroe",
+    email: "sumanydv615@gmail.com",
     profileImage,
-    logoImage,
+
+    resumePdf,
     socialLinks: [
       { icon: "github", label: "GitHub", href: "https://github.com/Ydv-Suman" },
       { icon: "linkedin", label: "LinkedIn", href: "https://linkedin.com/in/suman-ydv" },
@@ -37,182 +24,199 @@ export const resume = {
       { icon: "facebook", label: "Facebook", href: "https://facebook.com/ydv.smn" },
     ],
   },
-  home: {
-    eyebrow: "Data · Machine Learning · Web",
-    headingPrefix: "Hi, I'm",
-    headingAccent: "Suman Yadav",
-    summary:
-      "I explore the edge between intelligent systems and polished user experiences. From predictive models to production-ready frontends, every project balances research rigor with design clarity.",
-    primaryAction: {
-      label: "View my work",
-      command: "projects",
-    },
-    secondaryAction: {
-      label: "Resume",
-      href: resumePdf,
-      download: true,
-    },
-    followLabel: "Follow me",
-    badges: [
-      { label: "Based in", value: "Monroe, LA", tone: "light" },
-      { label: "Studying at", value: "UL Monroe", tone: "light" },
-      { label: "Status", value: "Open to work", tone: "accent" },
-    ],
+
+  nav: ["About", "Skills", "Experience", "Projects", "Certifications", "Contact"],
+
+  hero: {
+    headline: "I build reliable backend systems.",
+    description:
+      "I build backend systems, craft frontend interfaces, and apply AI to real problems. Open to internships and part-time roles.",
+    primaryCta: { label: "View Projects", href: "#projects" },
+    secondaryCta: { label: "Download Resume", href: resumePdf, download: true },
   },
+
   about: {
-    eyebrow: "About",
-    title: "Curiosity-powered builder",
+    title: "About me",
     bio: [
-      "Hello! I'm Suman Yadav, a tech enthusiast from Monroe, Louisiana currently pursuing a Bachelor's in Computer Science at the University of Louisiana.",
-      "My work spans responsive React + Tailwind experiences, FastAPI services, and data science projects powered by Python, Pandas, and Scikit-learn. Every build blends thoughtful UX with measurable results.",
-      "I thrive at the intersection of experimentation and delivery — crafting solutions that are practical, scalable, and grounded in user needs.",
+      "I'm a Computer Science student at the University of Louisiana at Monroe, focused on backend engineering with Java and Spring Boot. I design APIs, model data, and build systems that scale — currently applying that to Atlas, a mobile-first AI coding agent platform I'm architecting as event-driven Spring Boot microservices.",
+      "My path started with data science and machine learning — building predictive models, working with Python, FastAPI, and RAG pipelines, and competing in a hackathon as a finalist. That analytical foundation now shapes how I approach backend architecture: data-driven, testable, and maintainable. I've also built frontend interfaces with React and Tailwind, including during a frontend internship, giving me the range to own a feature end-to-end.",
     ],
-    highlights: [
-      {
-        emoji: "🚀",
-        title: "What drives me",
-        body: "Solving real-world problems with data-informed thinking, practical engineering, and relentless curiosity.",
-      },
-      {
-        emoji: "📚",
-        title: "Outside the editor",
-        body: "Reading about AI ethics, experimenting with public APIs, and tackling online coding challenges.",
-      },
-      {
-        emoji: "🤝",
-        title: "Opportunities",
-        body: "Open to internships, freelance collaborations, and research-driven product teams.",
-      },
-    ],
-    cta: {
-      eyebrow: "Open to work",
-      title: "Let's build something amazing",
-      body: "Internships, freelance, research — I'm all ears.",
-      command: "contact",
-      actionLabel: "Get in touch →",
-    },
+    highlights: [],
   },
+
   skills: {
-    eyebrow: "Capabilities",
-    title: "A balanced, end-to-end toolkit",
+    title: "Skills",
     groups: [
       {
-        emoji: "🔤",
         title: "Languages",
-        items: ["Python", "Java", "JavaScript"],
+        items: ["Java", "Python", "JavaScript", "HTML5", "SQL"],
       },
       {
-        emoji: "🧠",
-        title: "ML & Data Science",
-        items: ["Scikit Learn", "TensorFlow", "PyTorch", "RAG", "Numpy", "Pandas", "Matplotlib", "Seaborn"],
+        title: "Backend",
+        items: [
+          "Spring Boot 3",
+          "Spring Security",
+          "REST APIs",
+          "JWT Authentication",
+          "OAuth2",
+          "Redis",
+          "PostgreSQL",
+          "MySQL",
+          "Docker",
+          "RabbitMQ",
+          "Kafka",
+        ],
       },
       {
-        emoji: "🌐",
-        title: "Web & Mobile",
-        items: ["React", "React Native", "Tailwind CSS", "HTML", "CSS"],
+        title: "Frontend",
+        items: ["React", "Tailwind CSS", "HTML", "CSS"],
       },
       {
-        emoji: "🗄️",
-        title: "Backend & Database",
-        items: ["Django", "FastAPI", "MySQL", "PostgreSQL"],
+        title: "Cloud & DevOps",
+        items: ["Git", "GitHub Actions", "AWS"],
       },
       {
-        emoji: "⚙️",
-        title: "Tools & Workflow",
-        items: ["Jupyter Notebook", "Google Colab", "Git", "GitHub", "Cursor", "VS Code"],
+        title: "Computer Science",
+        items: ["Data Structures & Algorithms", "System Design", "OOP", "Multithreading", "Database Design"],
       },
     ],
   },
+
   experience: {
-    eyebrow: "Journey",
-    title: "Experience & long-form learning",
+    title: "Experience",
     items: [
       {
         period: "April 2026",
         title: "Hawkathon 2026 — Finalist",
-        org: "Litmus · Python, FastAPI, React, PostgreSQL, AWS S3",
-        details: "Built a candidate evaluation pipeline with resume parsing, multi-source verification, and proctored assessments. Detects inflated profiles via GitHub/LinkedIn activity checks. Full-stack system with structured scoring and HR-facing insights.",
-        dot: "bg-emerald-600",
-      },
-      {
-        period: "2024 — Present",
-        title: "Machine Learning Projects",
-        org: "Independent Research",
-        details: "Heart disease, bulldozer pricing, sarcasm detection, MNIST, Iris predictor, WeatherPro, and PetVision.",
-        dot: "bg-teal-600",
-      },
-      {
-        period: "2024 — Present",
-        title: "Full-Stack Experiments",
-        org: "Personal & Client Work",
-        details: "Designing responsive React + Tailwind experiences and integrating Python/FastAPI services for real users.",
-        dot: "bg-cyan-500",
+        org: "Litmus",
+        tech: ["Python", "FastAPI", "React", "PostgreSQL", "AWS S3"],
+        summary:
+          "Built a candidate evaluation pipeline with resume parsing, multi-source verification, and proctored assessments.",
+        details: [
+          "Designed resume parsing pipeline with structured scoring output",
+          "Implemented GitHub and LinkedIn activity checks to detect inflated profiles",
+          "Built full-stack system with HR-facing insights dashboard",
+        ],
       },
       {
         period: "2023 — Expected May 2027",
         title: "B.S. Computer Science",
         org: "University of Louisiana at Monroe",
-        details: "AI, Data Structures, OOP, DBMS, Operating Systems, Discrete Structures, Calculus, Statistics & Probability.",
-        dot: "bg-amber-500",
+        tech: [],
+        summary:
+          "Coursework in AI, Data Structures, OOP, DBMS, Operating Systems, Discrete Structures, Calculus, Statistics & Probability.",
+        details: [],
       },
       {
         period: "May 2023 — Aug 2023",
         title: "Web Developer Intern",
         org: "Startup Realm Technology · Lalitpur, Nepal",
-        details: "Built 10+ responsive UI views with HTML, CSS, and JS — 10% engagement lift. Shipped cross-browser components in a 10-member Agile team with Git-based code review.",
-        dot: "bg-green-500",
+        tech: ["HTML", "CSS", "JavaScript", "Git"],
+        summary: "Built 10+ responsive UI views in a 10-member Agile team.",
+        details: [
+          "Shipped cross-browser components with Git-based code review",
+          "Achieved 10% engagement lift through responsive design improvements",
+          "Participated in sprint planning, daily standups, and retrospectives",
+        ],
       },
     ],
   },
+
   projects: {
-    eyebrow: "Work",
-    title: "My featured projects",
-    intro: "A curated selection of pinned repositories showcasing data science, ML, and product intuition.",
-    actionLabel: "View on GitHub",
-    repoMetaFallback: "Repository metadata is loading.",
-    emptyTitle: "No project data available yet.",
-    emptyBody: "Try again in a moment while the GitHub repositories finish loading.",
-    terminalHintTitle: "Use the terminal to open a project",
-    terminalHintBody: "Type open [slug] or cat [slug] in the terminal below.",
-    starsSuffix: "stars",
-    detailLabels: {
-      repository: "Repository",
-      lastUpdated: "Last updated",
-      stars: "Stars",
-      forks: "Forks",
-    },
-    detailPanel: {
-      commandLabel: "back",
-      title: "A curated selection of pinned repositories showcasing data science, ML, and product intuition.",
-      body: "Repository metadata is loading.",
-    },
+    title: "Projects",
+    intro: "A selection of repositories showcasing backend, data science, and full-stack work.",
     items: [
-      { slug: "lernix", repo: "Lernix" },
-      { slug: "trustai", repo: "TrustAI" },
-      { slug: "driftguard", repo: "DriftGuard" },
-      { slug: "heart-disease-project", repo: "Heart-Disease-Project" },
-      { slug: "sarcasm-detector", repo: "Sarcasm-Detector" },
+      {
+        name: "Atlas",
+        description: "architected to power a mobile-first AI coding agent platformy.",
+        stack: ["Springboot", "PostgreSQL", "Docker" ,"Redis"],
+        github: "https://github.com/Ydv-Suman/Atlas-backend.git",
+      },
+      {
+        name: "Lernix",
+        description: "A learning management platform with course enrollment, progress tracking, and content delivery.",
+        stack: ["React", "FastAPI", "PostgreSQL"],
+        github: "https://github.com/Ydv-Suman/Lernix",
+      },
+      {
+        name: "TrustAI",
+        description: "AI trust and safety evaluation tool for detecting bias and ensuring model reliability.",
+        stack: ["Python", "Scikit-learn", "Pandas"],
+        github: "https://github.com/Ydv-Suman/TrustAI",
+      },
+      {
+        name: "DriftGuard",
+        description: "Model monitoring system that detects data drift and performance degradation in production ML.",
+        stack: ["Python", "Pandas", "Matplotlib"],
+        github: "https://github.com/Ydv-Suman/DriftGuard",
+      },
+      {
+        name: "Heart-Disease-Project",
+        description: "End-to-end classification pipeline predicting heart disease from clinical data.",
+        stack: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
+        github: "https://github.com/Ydv-Suman/Heart-Disease-Project",
+      },
     ],
   },
+
+  certifications: {
+    title: "Certifications",
+    items: [
+      {
+        name: "AWS Certified AI Practitioner",
+        issuer: "Amazon Web Services",
+        date: "2026",
+        pdf: awsCert,
+      },
+      {
+        name: "DevSecOps Essentials",
+        issuer: "EC-Council",
+        date: "2026",
+        pdf: eccCert,
+      },
+      {
+        name: "AI, ML & Data Science",
+        issuer: "Udemy",
+        date: "2025",
+        pdf: aiMlCert,
+      },
+      {
+        name: "FastAPI — The Complete Course 2026",
+        issuer: "Udemy",
+        date: "2025",
+        pdf: fastapiCert,
+      },
+      {
+        name: "Python Django — Practical Guide",
+        issuer: "Udemy",
+        date: "2026",
+        pdf: djangoCert,
+      },
+    ],
+  },
+
   contact: {
-    eyebrow: "Contact",
-    title: "Let's build something meaningful",
-    intro: "Always interested in data-first products, ML research, and full-stack challenges.",
+    title: "Get in touch",
+    intro: "Open to backend engineering roles, internships, and meaningful collaborations.",
     details: [
       { icon: "email", label: "Email", value: "sumanydv615@gmail.com", href: "mailto:sumanydv615@gmail.com" },
-      { icon: "location", label: "Location", value: "Monroe, Louisiana • Remote friendly" },
-      { icon: "linkedin", label: "LinkedIn", value: "linkedin.com/in/suman-ydv", href: "https://linkedin.com/in/suman-ydv" },
-      { icon: "resume", label: "Resume", value: "Download PDF", href: resumePdf },
+      { icon: "phone", label: "Phone", value: "+1 (318) 512-5501", href: "tel:+13185125501" },
+      { icon: "location", label: "Location", value: "Monroe, Louisiana" },
+      {
+        icon: "linkedin",
+        label: "LinkedIn",
+        value: "linkedin.com/in/suman-ydv",
+        href: "https://linkedin.com/in/suman-ydv",
+      },
     ],
-    note: "Drop me a message and I'll get back to you within 24 hours. Always happy to discuss data science, ML research, or product ideas. ✉️",
     form: {
       action: "https://formsubmit.co/ajax/sumanydv615@gmail.com",
       success: "Message sent! I'll get back to you within 24 hours.",
       validation: "Please fill every field before sending.",
       activationError: "Email delivery not yet activated. Please email me directly at sumanydv615@gmail.com.",
       fallbackError: "Something went wrong. Please try again or email me directly.",
-      submitLabel: "Send message →",
-      submittingLabel: "Sending…",
+      submitLabel: "Send message",
+      submittingLabel: "Sending...",
       fields: [
         { id: "name", type: "text", label: "Name", placeholder: "Your full name" },
         { id: "email", type: "email", label: "Email", placeholder: "you@example.com" },
@@ -220,7 +224,7 @@ export const resume = {
       messageField: {
         id: "message",
         label: "Message",
-        placeholder: "Tell me about the problem you are solving.",
+        placeholder: "Tell me about the problem you're solving.",
       },
     },
   },

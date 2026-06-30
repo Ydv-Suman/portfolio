@@ -1,7 +1,0 @@
-{
-  "language": ["Python", "Java", "JavaScript"],
-  "MlDataScience": ["Scikit Learn", "TensorFlow", "PyTorch", "RAG", "Numpy", "Pandas", "Matplotlib", "Seaborn"],
-  "WebAndMobile": ["React", "React Native", "Tailwind CSS", "HTML", "CSS"],
-  "BackendAndDatabase": ["Django", "FastAPI", "MySQL", "PostgreSQL"],
-  "tools": ["Jupyter Notebook", "Google Colab", "Git", "GitHub", "Cursor", "VS Code"]
-}
