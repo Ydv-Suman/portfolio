@@ -1,5 +1,6 @@
 import { FaGithub } from "react-icons/fa";
 import { resume } from "../../data/resume";
+import { skillIcons, skillColors } from "../../lib/iconMaps";
 import SectionTitle from "../common/SectionTitle";
 
 function ProjectsSection() {
@@ -23,14 +24,24 @@ function ProjectsSection() {
             </p>
 
             <div className="mt-4 flex flex-wrap gap-1.5">
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-md border border-gray-200 bg-gray-50 px-2 py-0.5 font-mono text-xs text-gray-600 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400"
-                >
-                  {tech}
-                </span>
-              ))}
+              {project.stack.map((tech) => {
+                const Icon = skillIcons[tech];
+                const color = skillColors[tech] || "#6b7280";
+                return (
+                  <span
+                    key={tech}
+                    className="inline-flex items-center gap-1 rounded-md border px-2 py-0.5 text-xs font-medium"
+                    style={{
+                      backgroundColor: `${color}15`,
+                      borderColor: `${color}30`,
+                      color: color,
+                    }}
+                  >
+                    {Icon ? <Icon className="h-3 w-3" style={{ color }} /> : null}
+                    {tech}
+                  </span>
+                );
+              })}
             </div>
 
             <div className="mt-4 flex gap-3">

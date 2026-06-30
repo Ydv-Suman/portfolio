@@ -76,6 +76,10 @@ export const resume = {
         items: ["Git", "GitHub Actions", "AWS"],
       },
       {
+        title: "ML & AI",
+        items: ["TensorFlow", "Scikit-learn", "RAG", "NumPy", "Pandas", "Matplotlib", "Seaborn"],
+      },
+      {
         title: "Computer Science",
         items: ["Data Structures & Algorithms", "System Design", "OOP", "Multithreading", "Database Design"],
       },

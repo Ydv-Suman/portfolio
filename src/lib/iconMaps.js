@@ -28,7 +28,13 @@ import {
   SiSpring,
   SiTailwindcss,
   SiAmazonwebservices,
+  SiFastapi,
+  SiScikitlearn,
+  SiPandas,
+  SiTensorflow,
+  SiNumpy,
 } from "react-icons/si";
+import { FaChartLine } from "react-icons/fa";
 
 export const socialIcons = {
   facebook: FaFacebook,
@@ -61,6 +67,14 @@ export const skillIcons = {
   Git: SiGit,
   "GitHub Actions": SiGithubactions,
   AWS: SiAmazonwebservices,
+  FastAPI: SiFastapi,
+  "Scikit-learn": SiScikitlearn,
+  Pandas: SiPandas,
+  Matplotlib: FaChartLine,
+  Springboot: SiSpring,
+  TensorFlow: SiTensorflow,
+  NumPy: SiNumpy,
+  Seaborn: FaChartLine,
 };
 
 export const skillColors = {
@@ -87,6 +101,16 @@ export const skillColors = {
   Git: "#f05032",
   "GitHub Actions": "#2088ff",
   AWS: "#ff9900",
+  FastAPI: "#009688",
+  "Scikit-learn": "#f7931e",
+  Pandas: "#e0e0e0",
+  Matplotlib: "#4a90d9",
+  Springboot: "#6db33f",
+  NLP: "#8e44ad",
+  TensorFlow: "#ff6f00",
+  NumPy: "#4dabcf",
+  Seaborn: "#76b7b2",
+  RAG: "#a78bfa",
 };
 
 export const contactIcons = {
